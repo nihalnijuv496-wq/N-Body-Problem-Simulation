@@ -2,6 +2,8 @@
 
 A JavaFX desktop simulation of the classical N-body gravitational problem. Place N bodies on a grid, configure their physical properties, and watch them interact under Newtonian gravity using Velocity Verlet integration.
 
+![Simulation demo](docs/demo.gif)
+
 ---
 
 ## Features
@@ -18,6 +20,29 @@ A JavaFX desktop simulation of the classical N-body gravitational problem. Place
 - Velocity Verlet integration for stable, accurate orbital physics
 - Softened gravity to prevent singularities on close approach
 - Minimal black and white UI theme
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- JDK 25
+- Maven (optional — the included Maven wrapper downloads it for you)
+
+### Run from the command line
+
+```bash
+git clone https://github.com/nihalnijuv496-wq/N-Body-Problem-Simulation.git
+cd N-Body-Problem-Simulation
+./mvnw clean javafx:run
+```
+
+On Windows, use `mvnw.cmd clean javafx:run`.
+
+### Run from IntelliJ IDEA
+
+Open the project as a Maven project, then run the `Launcher` class (`com.nihal.nbodyproblem.Launcher.Launcher`).
 
 ---
 
@@ -85,9 +110,15 @@ Constants (configurable in `Constants.java`):
 
 ---
 
+## Limitations
+
+- **Energy and momentum are not perfectly conserved.** The simulation advances in discrete time steps, so small numerical errors accumulate. Total energy will fluctuate slightly and may drift over long runs, especially during close encounters between bodies, and momentum can deviate slightly for the same reason. Reducing `timeStep` in `Constants.java` improves accuracy at the cost of performance. The **Total System Energy** readout in the Runtime Data tab shows how much drift has occurred.
+
+---
+
 ## Tech Stack
 
-- Java 21
+- Java 25
 - JavaFX
 - Maven
 
